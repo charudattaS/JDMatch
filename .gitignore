@@ -1,0 +1,30 @@
+# Build folders
+bin/
+obj/
+
+# VS folders
+.vs/
+*.user
+*.suo
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment configs
+appsettings.Development.json
+appsettings.Local.json
+
+# Secrets
+secrets.json
+
+# EF migrations snapshot (optional keep)
+# Migrations/*.Designer.cs
+s

@@ -1,0 +1,6 @@
+@JDMatch_HostAddress = http://localhost:5049
+
+GET {{JDMatch_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
