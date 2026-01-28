@@ -1,9 +1,10 @@
-﻿using JDMatch.Domain.Entities;
+﻿using JDMatch.Application.Interfaces;
+using JDMatch.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace JDMatch.Infrastructure.Persistence
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IApplicationDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)

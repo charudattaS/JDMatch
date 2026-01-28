@@ -1,3 +1,6 @@
+using JDMatch.Application.Implementation;
+using JDMatch.Application.Interfaces;
+using JDMatch.Application.UseCases;
 using JDMatch.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +15,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IApplicationDbContext, AppDbContext>();
+builder.Services.AddScoped<IResumeMatcher, ResumeMatcher>();
+builder.Services.AddScoped<IMatchResumeUseCase, MatchResumeUseCase>();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

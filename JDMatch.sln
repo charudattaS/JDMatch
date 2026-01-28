@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Api", "JDMatch\JDMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Domain", "JDMatch.Domain\JDMatch.Domain.csproj", "{1A7C8C38-FAF2-4278-A4FE-0DD979728321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDMatch.Application", "JDMatch.Application\JDMatch.Application.csproj", "{5357344C-63CC-496D-AEFF-84EBDEF368EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Application", "JDMatch.Application\JDMatch.Application.csproj", "{5357344C-63CC-496D-AEFF-84EBDEF368EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDMatch.Infrastructure", "JDMatch.Infrastructure\JDMatch.Infrastructure.csproj", "{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Infrastructure", "JDMatch.Infrastructure\JDMatch.Infrastructure.csproj", "{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDMatch.Tests", "JDMatch.Tests\JDMatch.Tests.csproj", "{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
