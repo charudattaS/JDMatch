@@ -27,5 +27,7 @@ namespace JDMatch.Domain.Entities
 
         // Navigation
         public User? User { get; set; }
+        public ICollection<ResumeMatch> ResumeMatches { get; set; } = new List<ResumeMatch>();
+
     }
 }

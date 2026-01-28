@@ -55,6 +55,19 @@ namespace JDMatch.Infrastructure.Persistence
     .HasForeignKey(j => j.UserId)
     .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<ResumeMatch>()
+    .HasOne(rm => rm.Resume)
+    .WithMany(r => r.ResumeMatches)
+    .HasForeignKey(rm => rm.ResumeId)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ResumeMatch>()
+                .HasOne(rm => rm.JobDescription)
+                .WithMany(j => j.ResumeMatches)
+                .HasForeignKey(rm => rm.JobDescriptionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
 
         }
 
@@ -63,6 +76,8 @@ namespace JDMatch.Infrastructure.Persistence
         public DbSet<Plan> Plans => Set<Plan>();
         public DbSet<Resume> Resumes => Set<Resume>();
         public DbSet<JobDescription> JobDescriptions => Set<JobDescription>();
+        public DbSet<ResumeMatch> ResumeMatches => Set<ResumeMatch>();
+
 
 
     }
