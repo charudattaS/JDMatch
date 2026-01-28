@@ -43,10 +43,18 @@ namespace JDMatch.Infrastructure.Persistence
                     CreatedAt = DateTime.UtcNow
                 }
             );
+            modelBuilder.Entity<Resume>()
+    .HasOne(r => r.User)
+    .WithMany(u => u.Resumes)
+    .HasForeignKey(r => r.UserId)
+    .OnDelete(DeleteBehavior.Cascade);
+
         }
 
 
         public DbSet<User> Users => Set<User>();
         public DbSet<Plan> Plans => Set<Plan>();
+        public DbSet<Resume> Resumes => Set<Resume>();
+
     }
 }
