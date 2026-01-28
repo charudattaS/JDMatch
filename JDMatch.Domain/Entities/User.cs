@@ -18,6 +18,8 @@
 
         public bool IsActive { get; set; } = true;
         public ICollection<Resume> Resumes { get; set; } = new List<Resume>();
+        public ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
+
 
     }
 }

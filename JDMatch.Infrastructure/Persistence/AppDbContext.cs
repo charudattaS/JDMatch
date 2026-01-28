@@ -49,12 +49,21 @@ namespace JDMatch.Infrastructure.Persistence
     .HasForeignKey(r => r.UserId)
     .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<JobDescription>()
+    .HasOne(j => j.User)
+    .WithMany(u => u.JobDescriptions)
+    .HasForeignKey(j => j.UserId)
+    .OnDelete(DeleteBehavior.Cascade);
+
+
         }
 
 
         public DbSet<User> Users => Set<User>();
         public DbSet<Plan> Plans => Set<Plan>();
         public DbSet<Resume> Resumes => Set<Resume>();
+        public DbSet<JobDescription> JobDescriptions => Set<JobDescription>();
+
 
     }
 }
