@@ -75,6 +75,8 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<AuthUseCase>();
 builder.Services.AddScoped<UpgradePlanUseCase>();
 builder.Services.AddScoped<GetSubscriptionSummaryUseCase>();
+builder.Services.AddScoped<CreateJobDescriptionUseCase>();
+builder.Services.AddScoped<GetUserJobDescriptionsUseCase>();
 
 // =========================
 // JWT Authentication

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JDMatch.Domain.Entities
+﻿namespace JDMatch.Domain.Entities
 {
     public class JobDescription
     {
@@ -25,7 +19,7 @@ namespace JDMatch.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation
-        public User? User { get; set; }
+        public User User { get; set; }
         public ICollection<ResumeMatch> ResumeMatches { get; set; } = new List<ResumeMatch>();
 
     }
