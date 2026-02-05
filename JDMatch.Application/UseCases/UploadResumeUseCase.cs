@@ -41,21 +41,31 @@ namespace JDMatch.Application.UseCases
             if (plan == null)
                 throw new Exception("Plan not found");
 
-            // ---------- CHECK MONTHLY LIMIT ----------
+            // ---------- ROLL BILLING IF NEEDED ----------
             var now = DateTime.UtcNow;
 
-            var resumeCountThisMonth = await _context.Resumes
-                .Where(r =>
+            if (now >= user.NextBillingDate)
+            {
+                user.SubscriptionStartDate = user.NextBillingDate;
+                user.NextBillingDate = user.NextBillingDate.AddMonths(1);
+
+                await _context.SaveChangesAsync();
+            }
+
+            // ---------- CHECK PLAN LIMIT INSIDE CURRENT BILLING WINDOW ----------
+            var resumeCount = await _context.Resumes
+                .CountAsync(r =>
                     r.UserId == userId &&
-                    r.CreatedAt.Month == now.Month &&
-                    r.CreatedAt.Year == now.Year)
-                .CountAsync();
+                    r.CreatedAt >= user.SubscriptionStartDate &&
+                    r.CreatedAt < user.NextBillingDate);
 
-            if (resumeCountThisMonth >= plan.MonthlyResumeLimit)
+            if (resumeCount >= plan.MonthlyResumeLimit)
+            {
                 throw new InvalidOperationException(
-    $"Monthly resume upload limit reached. Your plan allows {plan.MonthlyResumeLimit} uploads per month."
-);
-
+                    $"Upload limit reached for current billing cycle. " +
+                    $"Your plan allows {plan.MonthlyResumeLimit} resumes per cycle."
+                );
+            }
 
             // ---------- SAVE FILE ----------
             var uploadsPath = Path.Combine(
@@ -123,6 +133,21 @@ namespace JDMatch.Application.UseCases
                     Verdict = result.Verdict
                 });
             }
+
+            // ---------- CALCULATE USAGE ----------
+            var usedCount = await _context.Resumes
+                .CountAsync(r =>
+                    r.UserId == userId &&
+                    r.CreatedAt >= user.SubscriptionStartDate &&
+                    r.CreatedAt < user.NextBillingDate);
+
+            response.Usage = new UsageInfo
+            {
+                Used = usedCount,
+                Limit = plan.MonthlyResumeLimit,
+                Remaining = plan.MonthlyResumeLimit - usedCount,
+                NextBillingDate = user.NextBillingDate
+            };
 
             return response;
         }

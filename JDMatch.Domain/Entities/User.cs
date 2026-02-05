@@ -20,6 +20,10 @@
         public ICollection<Resume> Resumes { get; set; } = new List<Resume>();
         public ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
         public string PasswordHash { get; set; } = null!;
+        public DateTime SubscriptionStartDate { get; set; }
+        public DateTime NextBillingDate { get; set; }
+        public bool IsSubscriptionActive { get; set; }
+
 
     }
 }

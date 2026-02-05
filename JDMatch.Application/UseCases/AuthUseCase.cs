@@ -36,7 +36,10 @@ namespace JDMatch.Application.UseCases
                 PlanId = request.PlanId,
                 CompanyName = "",
                 CreatedAt = DateTime.UtcNow,
-                IsActive = true
+                IsActive = true,
+                SubscriptionStartDate = DateTime.UtcNow,
+                NextBillingDate = DateTime.UtcNow.AddMonths(1),
+                IsSubscriptionActive = true
             };
 
             _context.Users.Add(user);

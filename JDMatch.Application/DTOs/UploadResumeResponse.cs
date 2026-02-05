@@ -4,6 +4,8 @@
     {
         public Guid ResumeId { get; set; }
         public List<JobMatchSummary> Matches { get; set; } = new();
+        public UsageInfo Usage { get; set; } = new();
+
     }
 
     public class JobMatchSummary
