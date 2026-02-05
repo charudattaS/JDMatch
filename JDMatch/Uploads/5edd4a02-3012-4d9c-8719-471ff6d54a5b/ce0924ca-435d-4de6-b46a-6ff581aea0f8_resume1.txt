@@ -1,0 +1,2 @@
+I am a backend developer with 3 years of experience.
+Skills: C#, SQL, .NET Core, Azure.
