@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Application", "JDMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Infrastructure", "JDMatch.Infrastructure\JDMatch.Infrastructure.csproj", "{41345E4E-2F4A-49EB-9B25-F6E92FFBE4F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDMatch.Tests", "JDMatch.Tests\JDMatch.Tests.csproj", "{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMatch.Tests", "JDMatch.Tests\JDMatch.Tests.csproj", "{C3C71463-93F1-4C02-8DF6-1C1482B0B7FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

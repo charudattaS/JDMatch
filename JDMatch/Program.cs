@@ -73,6 +73,8 @@ builder.Services.AddScoped<ITextExtractionService, TextExtractionService>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<AuthUseCase>();
+builder.Services.AddScoped<UpgradePlanUseCase>();
+builder.Services.AddScoped<GetSubscriptionSummaryUseCase>();
 
 // =========================
 // JWT Authentication
